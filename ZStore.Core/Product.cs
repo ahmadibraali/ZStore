@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyEcommerce.Domain
+namespace ZStore.Core
 {
     public class Product
     {
