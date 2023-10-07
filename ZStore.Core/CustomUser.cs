@@ -3,7 +3,7 @@
 using System.ComponentModel.DataAnnotations;
 
 
-namespace MyEcommerce.Domain
+namespace ZStore.Core
 {
     public class CustomUser : IdentityUser
     {
