@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ZStore.Core
 {
@@ -18,5 +19,7 @@ namespace ZStore.Core
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+        public  ICollection<ProductImage> Images { get; set; } =
+            new HashSet<ProductImage>();
     }
 }

@@ -1,32 +1,36 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using ZStore.Application.Interfaces;
+
+using ZStore.Core;
+using ZStore.DTO;
 using ZStore.MVC.Models;
 
 namespace ZStore.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ICategoryRepository category;
+        private readonly IProductRepository product;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ICategoryRepository _category, IProductRepository _product )
         {
-            _logger = logger;
+            category = _category;
+            product = _product;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            // CategoryProductViewModel categoryProductsVm = new CategoryProductViewModel();
+            //categoryProductsVm.Products = (IQueryable<Product>)await product.GetAllProductPagination(4, 1, 0);
+            // categoryProductsVm._categories = (await category.GetAllAsync()).ToList();
+            //return View(categoryProductsVm);
             return View();
-        }
 
-        public IActionResult Privacy()
+		}
+        public async Task<IActionResult> LoadMore(int page, int catId)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return Json(await product.GetAllProductPagination(4, page, catId));
         }
     }
 }

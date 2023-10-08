@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="wwwroot\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ZStore.Application\ZStore.Application.csproj" />
     <ProjectReference Include="..\ZStore.Data\ZStore.Data.csproj" />
+    <ProjectReference Include="..\ZStore.DTO\ZStore.DTO.csproj" />
     <ProjectReference Include="..\ZStore.Repository\ZStore.Repository.csproj" />
   </ItemGroup>
 
@@ -24,7 +34,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Data\" />
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />

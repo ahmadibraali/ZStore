@@ -9,9 +9,9 @@ using ZStore.Data;
 
 namespace ZStore.Repository
 {
-    public class OrderItemReposittory : Reposit<OrderItem, int>, IOrderItemRepository
+    public class OrderRepository : Reposit<Order, int>, IOrderRepository
     {
-        public OrderItemReposittory(ZStoreContext context) : base(context) { }
+        public OrderRepository(ZStoreContext context) : base(context) { }
 
     }
     

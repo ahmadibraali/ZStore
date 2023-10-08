@@ -461,7 +461,7 @@ namespace ZStore.Data.Migrations
             modelBuilder.Entity("ZStore.Core.ProductImage", b =>
                 {
                     b.HasOne("ZStore.Core.Product", "Product")
-                        .WithMany()
+                        .WithMany("Images")
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -477,6 +477,11 @@ namespace ZStore.Data.Migrations
             modelBuilder.Entity("ZStore.Core.CustomUser", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("ZStore.Core.Product", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }
