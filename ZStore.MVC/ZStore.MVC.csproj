@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ZStore.Application\ZStore.Application.csproj" />
+    <ProjectReference Include="..\ZStore.Data\ZStore.Data.csproj" />
+    <ProjectReference Include="..\ZStore.Repository\ZStore.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
