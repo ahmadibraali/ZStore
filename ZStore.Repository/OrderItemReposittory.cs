@@ -14,6 +14,5 @@ namespace ZStore.Repository
         public OrderItemReposittory(ZStoreContext context) : base(context) { }
 
     }
-    {
-    }
+    
 }
