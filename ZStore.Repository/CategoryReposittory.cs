@@ -14,6 +14,5 @@ namespace ZStore.Repository
         public CategoryReposittory(ZStoreContext context) : base(context) { }
 
     }
-    {
-    }
+  
 }
