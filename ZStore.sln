@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZStore.Data", "ZStore.Data\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZStore.Repository", "ZStore.Repository\ZStore.Repository.csproj", "{4D6969D8-64FD-41EF-A280-2BB419FFD9C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZStore.MVC", "ZStore.MVC\ZStore.MVC.csproj", "{6F4185CF-894C-41B5-A5AA-442AF29AFA81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZStore.MVC", "ZStore.MVC\ZStore.MVC.csproj", "{6F4185CF-894C-41B5-A5AA-442AF29AFA81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZStore.DTO", "ZStore.DTO\ZStore.DTO.csproj", "{8B31CCB3-0BFF-42B4-A5CD-92130AD7BD6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6F4185CF-894C-41B5-A5AA-442AF29AFA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F4185CF-894C-41B5-A5AA-442AF29AFA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F4185CF-894C-41B5-A5AA-442AF29AFA81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B31CCB3-0BFF-42B4-A5CD-92130AD7BD6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B31CCB3-0BFF-42B4-A5CD-92130AD7BD6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B31CCB3-0BFF-42B4-A5CD-92130AD7BD6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B31CCB3-0BFF-42B4-A5CD-92130AD7BD6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ZStore.Application.Interfaces;
 using ZStore.Core;
 using ZStore.Data;
+using ZStore.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,18 @@ builder.Services.AddDbContext<ZStoreContext>(options =>
 builder.Services.AddIdentity<CustomUser, IdentityRole>(options =>
 options.Password.RequireUppercase = false).AddEntityFrameworkStores<ZStoreContext>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductImageRepository, ProductImageRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddAutoMapper(typeof(Program));
+
+
+
+
 
 var app = builder.Build();
 
