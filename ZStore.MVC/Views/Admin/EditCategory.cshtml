@@ -1,0 +1,28 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "EditCategory";
+    Layout = "_AdminLayout";
+}
+
+<hr />
+
+<div class="col-md-12">
+    <form method="post" asp-action="EditCategory">
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+        <div>
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" value="@Model.Name" />
+        </div> <br />
+        <div>
+            <label asp-for="Description"></label>
+            <input class="form-control" asp-for="Description" value="@Model.Description" />
+        </div> <br />
+        <input type="submit" class="btn btn-success " value="Save" />
+    </form>
+    <br />
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -25,8 +25,8 @@ namespace ZStore.MVC.Controllers
 		public async Task<IActionResult> Category()
 		{
 			List<Category> categories = (await categoryRepository.GetAllAsync()).ToList();
-			ViewData["categories"] = categories;
-			return View();
+			
+			return View(categories);
 		}
 		public async Task<IActionResult> Product()
 		{
@@ -36,8 +36,8 @@ namespace ZStore.MVC.Controllers
 		public async Task<IActionResult> AddProduct()
 		{
 			List<Category> categories = (await categoryRepository.GetAllAsync()).ToList();
-			
-			return View(categories);
+			ViewData["categories"] = categories;
+			return View();
 		}
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -91,15 +91,52 @@ namespace ZStore.MVC.Controllers
 
 			List<Category> categories =( await categoryRepository.GetAllAsync()).ToList();
 			ViewData["categories"] = categories;
-			return View();
+			return View(_productEdited);
 		}
 		public async Task<IActionResult> DeleteProduct(int id)
 		{
 			await productRepository.DeleteByIdAsync(id);
 			return RedirectToAction("Product");
 		}
+        public  IActionResult AddCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddCategory(Category categoryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                Category cat = await categoryRepository.CreateAsync(categoryModel);
+                return Redirect("Category");
+            }
+            return View(categoryModel);
+        }
+        public async Task<IActionResult> EditCategory(int id)
+        {
+            var category = await categoryRepository.GetByIdAsync(id);
+            return View(category);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditCategory(Category categoryModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var res = await categoryRepository.UpdateAsync(categoryModel);
+                return RedirectToAction("category");
+            }
+            return View(categoryModel);
+        }
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            var category = await categoryRepository.GetByIdAsync(id);
+            var result = await categoryRepository.DeleteByIdAsync(id);
+            return RedirectToAction("category");
+        }
 
 
 
-	}
+    }
 }

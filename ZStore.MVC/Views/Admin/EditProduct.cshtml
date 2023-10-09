@@ -1,0 +1,64 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "EditProduct";
+    Layout = "_AdminLayout";
+    SelectList items = new SelectList(ViewBag.categories, "Id", "Name");
+}
+
+<hr />
+<div class="col-md-12">
+    <form asp-action="EditProduct" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <input hidden asp-for="Id" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input hidden asp-for="Status" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="UnitInStock" class="control-label"></label>
+            <input asp-for="UnitInStock" class="form-control" />
+            <span asp-validation-for="UnitInStock" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+
+            @foreach (var item in Model.Images)
+            {
+                <img src="~/images/@item.Name" width="100px" height="100px" />
+            }
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <textarea asp-for="Description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryId" class="control-label">Category</label>
+            <select asp-for="CategoryId" class="form-control" asp-items="items"></select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

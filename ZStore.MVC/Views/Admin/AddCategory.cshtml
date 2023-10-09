@@ -1,0 +1,23 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "_AdminLayout";
+}
+
+<hr />
+<div class="col-md-12">
+    <form method="post" asp-action="AddCategory">
+        <div>
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+        </div> <br />
+        <div>
+            <label asp-for="Description"></label>
+            <input class="form-control" asp-for="Description" />
+        </div> <br />
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a asp-action="category" class="btn btn-primary">go Back</a>
+
+    </form><br />
+</div>
