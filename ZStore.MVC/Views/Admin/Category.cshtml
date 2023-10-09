@@ -1,0 +1,40 @@
+﻿@model List<Category>
+@{
+	ViewData["Title"] = "All Categories";
+	Layout = "_AdminLayout";
+}
+
+<div class="row no-gutters  align-items-center">
+	@foreach (var item in Model)
+	{
+		<div class="col-4 col-sm-6 col-md-4 d-flex align-items-center flex-column">
+			<div class="card bg-light d-flex flex-fill">
+				<div class="card-header text-muted border-bottom-0">
+					Digital Strategist
+				</div>
+				<div class="card-body pt-0">
+					<div class="row">
+						<div class="col-7">
+							<h2 class="lead"><b></b></h2>
+							<p class="text-muted text-sm"><b>ID: @item.Id </b> </p>
+							<p class="text-muted text-sm"><b>Name: @item.Name </b> </p>
+						</div>
+						<div class="col-5 text-center">
+							<img src="/Admin/img/user1.jpg" alt="user-avatar" class="img-circle img-fluid">
+						</div>
+					</div>
+				</div>
+				<div class="card-footer">
+					<div class="text-right">
+						<a class="btn btn-sm bg-teal" asp-action="EditCategory" asp-route-id="@item.Id">
+							Edit
+						</a>
+						<a class="btn btn-sm bg-danger" asp-action="DeleteCategory" asp-route-id="@item.Id">
+							Delete
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+</div>
