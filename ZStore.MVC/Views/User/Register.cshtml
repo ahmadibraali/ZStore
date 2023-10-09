@@ -1,0 +1,61 @@
+﻿@model RegisteredUserViewModel;
+
+@{
+    ViewData["Title"] = "Register";
+    
+    Layout = "_AdvLayout";
+}
+
+<hr />
+<section class="bg0 p-t-104 p-b-116">
+    <div class="container">
+        <div class="flex-w flex-tr">
+            <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md mx-auto">
+                <form asp-action="Register">
+                    <h4 class="mtext-105 cl2 txt-center p-b-30">
+                        Register
+                    </h4>
+                    <div asp-validation-summary=All class="text-danger"></div>
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input asp-for="userName" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" placeholder="Enter Your UserName" />
+                        <span asp-validation-for="userName" class="text-danger"></span>
+                    </div>
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input asp-for="Email" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" placeholder="Enter Your Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input asp-for="PasswordHash" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" placeholder="Enter Your Password" />
+                        <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                    </div>
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input asp-for="ConfirmPassword" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" placeholder="Enter Your Confirm Password" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input asp-for="Phone" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" placeholder="Enter Your Phone" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input asp-for="Address" class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" placeholder="Enter Your Address" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <input type="submit" value="Register" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div>
+    <a asp-action="Index">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
