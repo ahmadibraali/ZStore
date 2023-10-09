@@ -13,8 +13,8 @@ namespace ZStore.Application.AutoMapper
     {
         public MapperProfile()
         {
-            CreateMap<CustomUser, RegisteredUserViewModel>().ReverseMap();
-
+            CreateMap<RegisteredUserViewModel, CustomUser>().ReverseMap();
+            
         }
     }
 }

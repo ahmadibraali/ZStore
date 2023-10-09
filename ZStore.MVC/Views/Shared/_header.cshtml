@@ -54,16 +54,16 @@
 						@if (User.Identity.IsAuthenticated)
 						{
 							<li>
-								<a asp-action="LogOut" asp-controller="UserAccount">LogOut</a>
+								<a asp-action="LogOut" asp-controller="User">LogOut</a>
 							</li>
 						}
 						else
 						{
 							<li>
-								<a asp-action="Register" asp-controller="UserAccount">Register</a>
+								<a asp-action="Register" asp-controller="User">Register</a>
 							</li>
 							<li>
-								<a asp-action="Login" asp-controller="UserAccount">Login</a>
+								<a asp-action="Login" asp-controller="User">Login</a>
 							</li>
 						}
 					</ul>
@@ -90,7 +90,7 @@
 						</div>
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0" id="cartItem">
-							<a asp-controller="UserAccount" asp-action="Login" class="text-dark"><i class="zmdi zmdi-shopping-cart"></i></a>
+							<a asp-controller="User" asp-action="Login" class="text-dark"><i class="zmdi zmdi-shopping-cart"></i></a>
 						</div>
 					</div>
 				}
