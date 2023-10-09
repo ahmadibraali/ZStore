@@ -23,13 +23,19 @@ namespace ZStore.Repository
             return result;
         }
 
-        public async Task<bool> DeleteAsync(T item)
+        public Task<bool> DeleteAsync(T item)
         {
-            var result = GDbSet.Remove(item);
-            return result!=null? true : false;
+            var result =  GDbSet.Remove(item);
+            return Task.FromResult(result !=null? true : false);
         }
 
-        public Task<IQueryable<T>> GetAllAsync()
+		public async Task<bool> DeleteByIdAsync(Tid id)
+		{
+            T item = (T)await GetByIdAsync( id);
+            return await DeleteAsync((T)item);
+		}
+
+		public Task<IQueryable<T>> GetAllAsync()
         {
             return (Task.FromResult(GDbSet.Select(p => p)));
         }

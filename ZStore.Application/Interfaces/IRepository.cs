@@ -9,6 +9,7 @@ namespace ZStore.Application.Interfaces
         Task<IQueryable<T>> GetAllAsync();
         Task<bool> UpdateAsync(T item);
         Task<bool> DeleteAsync(T item);
-        Task<int> SaveChangesAsync();
+        Task<bool> DeleteByIdAsync(TId id);
+		Task<int> SaveChangesAsync();
     }
 }
