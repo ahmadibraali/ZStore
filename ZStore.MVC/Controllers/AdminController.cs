@@ -55,7 +55,7 @@ namespace ZStore.MVC.Controllers
 				{
 					await image.CopyToAsync(fileStream);
 				}
-
+				_product.Status = true;
 				var result = await productRepository.CreateAsync(_product);
 				await productImageRepository.CreateAsync(filname, result.Id);
 
